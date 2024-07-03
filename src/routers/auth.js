@@ -13,7 +13,10 @@ auth.get("/login", (req, res) => {
 		console.log("query", req.query.user);
 		req.session.user = req.query.user;
 		req.session.save(function (err) {
-			if (err) res.redirect(process.env.PARENT_APP);
+			if (err) {
+				console.log(err);
+				res.redirect(process.env.PARENT_APP);
+			}
 			res.redirect("/");
 		});
 	});
