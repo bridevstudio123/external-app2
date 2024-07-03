@@ -6,7 +6,10 @@ const auth = Router();
 dotenv.config();
 
 auth.get("/login", (req, res) => {
-	console.log("req", req);
+	console.log("headers", req.headers);
+	console.log("cookies", req.headers.cookie);
+	console.log("session", req.session);
+	console.log("user", req.user);
 	res.redirect("/");
 	// req.session.regenerate(function (err) {
 	// 	if (err) throw new Error(err);
