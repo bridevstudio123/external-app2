@@ -11,12 +11,4 @@ export const sessionMiddleware = session({
 	secret: process.env.COOKIE_SESSION_SECRET,
 	resave: false,
 	saveUninitialized: false,
-	cookie: {
-		secure: process.env.NODE_ENV !== "development", // Set it to true if using HTTPS
-		sameSite: sameSite,
-		httpOnly: true,
-		maxAge: 24 * 60 * 60 * 1000, // 1 day,
-		domain:
-			process.env.NODE_ENV === "development" ? "localhost" : process.env.DOMAIN,
-	},
 });
