@@ -6,26 +6,20 @@ const auth = Router();
 dotenv.config();
 
 auth.get("/login", (req, res) => {
-	console.log("headers", req.headers);
-	console.log("cookies", req.headers.cookie);
-	console.log("session", req.session);
-	console.log("user", req.user);
-	res.redirect("/");
-	// req.session.regenerate(function (err) {
-	// 	if (err) throw new Error(err);
+	req.session.regenerate(function (err) {
+		if (err) throw new Error(err);
 
-	// 	// store user information in session, typically a user id
-	// 	console.log("query", req.query.user);
-
-	// 	req.session.user = req.query.user;
-	// 	req.session.save(function (err) {
-	// 		if (err) {
-	// 			console.log(err);
-	// 			res.redirect(process.env.PARENT_APP);
-	// 		}
-	// 		res.redirect("/");
-	// 	});
-	// });
+		// store user information in session, typically a user id
+		console.log("query", req.query.user);
+		req.session.user = req.query.user;
+		req.session.save(function (err) {
+			if (err) {
+				console.log(err);
+				res.redirect(process.env.PARENT_APP);
+			}
+			res.redirect("/");
+		});
+	});
 });
 
 auth.get("/logout", (req, res) => {
