@@ -11,7 +11,6 @@ auth.get("/login", (req, res) => {
 
 		// store user information in session, typically a user id
 		console.log("query", req.query.user);
-		console.log("req", req);
 
 		req.session.user = req.query.user;
 		req.session.save(function (err) {

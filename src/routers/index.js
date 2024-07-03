@@ -5,7 +5,7 @@ import { auth } from "./auth.js";
 
 const router = Router();
 
-router.use(sessionMiddleware);
+// router.use(sessionMiddleware);
 
 router.use(auth);
 
