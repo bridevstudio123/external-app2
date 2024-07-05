@@ -36,20 +36,22 @@ body {
   color: #333;
 }
 
-.auth-links {
-  display: flex;
-  gap: 1em; /* Adjust the gap as needed */
-  align-items: center; /* Align items vertically center */
-  right: 1em;
+.welcome-message {
   position: absolute;
+  left: 1em; /* Position the name at the top left */
+  display: flex;
+  align-items: center;
 }
 
-.auth-links p {
+.logout-link {
+  position: absolute;
+  right: 1em; /* Position the logout link at the top right */
+  display: flex;
+  align-items: center;
+}
+
+.welcome-message p {
   margin: 0;
-}
-
-.auth-links a, .auth-links form {
-  display: inline-block;
 }
 
 .main-content {
