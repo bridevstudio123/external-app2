@@ -1,12 +1,14 @@
 <nav class="navbar">
 	<ul class="nav-links">
 		<li><a href="/">Home</a></li>
+		<% if (name) { %>
+		<li><a href="/dashboard">Dashboard</a></li>
+		<% } %>
 	</ul>
 	<div class="auth-links">
 		<% if (name) { %>
+		<p>Selamat Datang, <%= name %></p>
 		<a href="/logout">Logout</a>
-		<% } else { %>
-		<a href="/login">Login</a>
 		<% } %>
 	</div>
 </nav>
