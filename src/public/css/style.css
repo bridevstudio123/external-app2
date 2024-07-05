@@ -18,13 +18,9 @@ body {
 .nav-links {
   list-style: none;
   padding: 0;
-  margin: 0 auto; /* Center the nav-links */
+  margin: 0;
   display: flex;
   gap: 1em;
-  justify-content: center;
-  position: absolute; /* Position absolute to center it */
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .nav-links li {
@@ -37,15 +33,11 @@ body {
 }
 
 .welcome-message {
-  position: absolute;
-  left: 1em; /* Position the name at the top left */
   display: flex;
   align-items: center;
 }
 
 .logout-link {
-  position: absolute;
-  right: 1em; /* Position the logout link at the top right */
   display: flex;
   align-items: center;
 }
