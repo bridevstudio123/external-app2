@@ -8,8 +8,6 @@ dotenv.config();
 const privateKey = process.env.PRIVATE_KEY;
 
 auth.get("/login", (req, res) => {
-	console.log("private key => ", privateKey);
-	console.log("code => ", req.query);
 	const { code } = req.query;
 	const decryptedData = decryptData(code, privateKey);
 
@@ -34,7 +32,7 @@ auth.get("/logout", (req, res) => {
 			throw new Error("Failed to logout");
 		}
 		res.clearCookie(`${process.env.COOKIE_SESSION_NAME || "_children"}`); // Clear session cookie
-		res.redirect("/");
+		res.redirect(process.env.PARENT_APP);
 	});
 });
 
