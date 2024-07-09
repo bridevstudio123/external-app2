@@ -21,7 +21,7 @@ auth.get("/login", (req, res) => {
 				console.error("Error saving session:", err);
 				return res.send({ error: "Session save failed" });
 			}
-			res.redirect("/");
+			res.redirect(process.env.PARENT_APP);
 		});
 	});
 });
