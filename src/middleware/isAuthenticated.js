@@ -17,7 +17,7 @@ const regenerateSession = (req, res, decryptedData, next) => {
 				console.error("Error saving session:", err);
 				return res.send({ error: "Session save failed" });
 			}
-			next();
+			res.redirect("/");
 		});
 	});
 };
