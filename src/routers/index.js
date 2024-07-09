@@ -10,7 +10,8 @@ import dashboard from "./dashboard.js";
 
 const router = Router();
 
-router.use(sessionMiddleware, tesMiddleware);
+router.use(sessionMiddleware);
+router.use(tesMiddleware);
 
 router.use(home);
 router.use(auth);
