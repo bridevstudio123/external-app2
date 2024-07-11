@@ -36,10 +36,12 @@ const createSession = (req, res, code, next) => {
 
 export const isAuthenticated = (req, res, next) => {
 	if (req.session.user) {
+		const { code } = req.query;
+		if (code) {
+			res.redirect("/");
+		}
 		return next();
 	}
-
-	const { code } = req.query;
 
 	if (code) {
 		return createSession(req, res, code, next);
