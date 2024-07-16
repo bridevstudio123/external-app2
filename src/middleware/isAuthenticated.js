@@ -39,7 +39,7 @@ export const isAuthenticated = (req, res, next) => {
 
 	// Respond with success code if checkMiddleware is present
 	if (check) {
-		return res.status(204);
+		return res.status(200).send({ message: "middleware is active" });
 	}
 
 	if (req.session.user) {
