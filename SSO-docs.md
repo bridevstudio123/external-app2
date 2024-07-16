@@ -112,11 +112,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const isAuthenticated = (req, res, next) => {
-	const { code, checkMiddleware } = req.query;
+	const { code, check } = req.query;
 
 	// Respond with success code if checkMiddleware is present
-	if (checkMiddleware) {
-		return res.status(204);
+	if (check) {
+		return res.status(200).send({ message: "middleware is active" });
 	}
 
 	if (req.session.user) {
