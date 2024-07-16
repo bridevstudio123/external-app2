@@ -9,6 +9,6 @@ const router = Router();
 router.use(sessionMiddleware);
 router.use(isAuthenticated); //Is Authenticated middleware
 
-router.use(home, auth, dashboard);
+router.use(home, dashboard);
 
 export default router;

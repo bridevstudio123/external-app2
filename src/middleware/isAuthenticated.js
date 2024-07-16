@@ -35,7 +35,12 @@ const createSession = (req, res, code, next) => {
 };
 
 export const isAuthenticated = (req, res, next) => {
-	const { code } = req.query;
+	const { code, checkMiddleware } = req.query;
+
+	// Respond with success code if checkMiddleware is present
+	if (checkMiddleware) {
+		return res.status(204);
+	}
 
 	if (req.session.user) {
 		if (code) {
